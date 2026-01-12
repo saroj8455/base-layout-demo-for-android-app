@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatDividerModule,
     MatCardModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

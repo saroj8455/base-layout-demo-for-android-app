@@ -12,6 +12,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../config/material.module';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-app-bar',
@@ -65,6 +67,7 @@ export class AppBarComponent {
   ];
 
   private router = inject(Router);
+  private dialog = inject(MatDialog);
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -79,10 +82,26 @@ export class AppBarComponent {
   }
 
   logout() {
-    if (confirm('Are you sure you want to logout?')) {
-      this.drawer.close();
-      localStorage.clear();
-      this.router.navigate(['/']);
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '320px',
+      maxWidth: '90vw',
+      disableClose: true, // prevent backdrop click
+      data: {
+        title: 'Confirm Logout',
+        message: 'Are you sure you want to logout?',
+        confirmText: 'Logout',
+        cancelText: 'Cancel',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('[APP] Logout');
+
+        localStorage.clear();
+        sessionStorage.clear();
+        this.router.navigate(['/']);
+      }
+    });
   }
 }

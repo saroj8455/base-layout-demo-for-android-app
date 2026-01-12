@@ -1,6 +1,7 @@
 /* Sidenav */
 .layout-sidenav {
-  width: 280px;
+  /* width: 280px; */
+  width: clamp(280px, 90dvw, 360px);
 }
 
 /* Main content */
