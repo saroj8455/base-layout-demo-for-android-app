@@ -1,0 +1,111 @@
+/* Sidenav */
+.layout-sidenav {
+  width: 280px;
+}
+
+/* Main content */
+.layout-content {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* Top toolbar (fixed height) */
+.top-toolbar {
+  flex: 0 0 auto;
+  position: sticky;
+  top: env(safe-area-inset-top); /* ✅ KEY FIX */
+  z-index: 1000;
+
+  /* Push content below notch */
+  padding-top: env(safe-area-inset-top);
+  min-height: calc(56px + env(safe-area-inset-top));
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-title {
+  font-weight: 500;
+}
+
+.sidenav-toolbar {
+  position: sticky;
+  top: 0;
+
+  /* Safe-area support (KEY) */
+  padding-top: env(safe-area-inset-top);
+  min-height: calc(56px + env(safe-area-inset-top));
+
+  z-index: 1;
+}
+
+/* Active route style */
+.active-link {
+  background-color: rgba(0, 48, 135, 0.08); /* PayPal-style blue tint */
+  color: #003087;
+  font-weight: 500;
+  border-left: 3px solid #003087;
+}
+
+/* Ensure Material icon/text inherit color */
+.active-link .mat-icon {
+  color: #003087;
+}
+
+/* Hover (optional) */
+.mat-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* for logout button fix  */
+
+.layout-sidenav {
+  width: 280px;
+}
+
+/* Full height flex layout */
+.sidenav-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Scrollable menu area */
+.sidenav-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Fixed bottom logout */
+
+/* Footer divider already exists */
+.sidenav-footer {
+  border-top: 1px solid #e6e9ef;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Primary-style list item */
+.primary-item {
+  color: #003087; /* primary blue */
+  font-weight: 500;
+}
+
+/* Icon inherits primary */
+.primary-item mat-icon {
+  color: #003087;
+}
+
+/* Hover state */
+.primary-item:hover {
+  background-color: rgba(0, 48, 135, 0.08);
+}
+
+/* Ripple + focus fix */
+.primary-item:focus-visible {
+  outline: none;
+}
+.primary-item {
+  border-left: 3px solid #003087;
+}

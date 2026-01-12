@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Main layout */
+.mobile-viewport {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* App bar must NOT grow */
+app-app-bar {
+  flex: 0;
+}
+
+/* Router content fills remaining space */
+.router-content {
+  flex: 1;
+  min-height: 0; /* 🔥 REQUIRED */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+}
