@@ -2,6 +2,9 @@
 .layout-sidenav {
   /* width: 280px; */
   width: clamp(280px, 90dvw, 360px);
+  /* This is a known Angular Material MDC sidenav overlay issue, especially visible on mobile / iOS / Capacitor. */
+  /* position: relative; */
+  z-index: 20000;
 }
 
 /* Main content */
@@ -39,7 +42,7 @@
   padding-top: env(safe-area-inset-top);
   min-height: calc(56px + env(safe-area-inset-top));
 
-  z-index: 1;
+  z-index: 5000; /* fix toolbar overlay issue  */
 }
 
 .sidenav-search {
@@ -79,10 +82,6 @@
 
 /* for logout button fix  */
 
-.layout-sidenav {
-  width: 280px;
-}
-
 /* Full height flex layout */
 .sidenav-wrapper {
   display: flex;
@@ -101,6 +100,7 @@
 
 /* Footer divider already exists */
 .sidenav-footer {
+  flex-shrink: 0;
   border-top: 1px solid #e6e9ef;
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -145,5 +145,5 @@ mat-nav-list span[matListItemTitle] {
 /* Active item */
 .active-link mat-icon {
   color: #003087;
-  background: rgba(0, 48, 135, 0.16);
+  /* background: rgba(0, 48, 135, 0.16); */
 }

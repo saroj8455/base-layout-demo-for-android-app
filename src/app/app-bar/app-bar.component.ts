@@ -44,8 +44,9 @@ export class AppBarComponent {
   searchTerm = '';
 
   topics = [
-    { title: 'Angular Introduction', path: '/angular-intro', icon: 'info' },
-    { title: 'Angular CLI', path: '/angular-cli', icon: 'terminal' },
+    { title: 'Angular Introduction', path: '/link2', icon: 'info' },
+    { title: 'Products', path: '/products', icon: 'shop' },
+    { title: 'Angular CLI', path: '/link3', icon: 'terminal' },
     { title: 'Components', path: '/components', icon: 'view_quilt' },
     { title: 'Templates', path: '/templates', icon: 'code' },
     { title: 'Data Binding', path: '/data-binding', icon: 'sync_alt' },

@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+html {
+  color-scheme: var(--color-scheme);
+  scroll-behavior: smooth;
+}
 html,
 body {
   height: 100%;
@@ -35,4 +38,29 @@ app-app-bar {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 16px;
+}
+
+/* reset  */
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* root cause and it's fix of overlay issue of mat side nav  */
+.mat-drawer-container {
+  /* issue because of z-index 1 */
+  /* z-index: 1; */
+  z-index: 10001 !important;
 }
