@@ -31,4 +31,12 @@ export const routes: Routes = [
       ),
   },
   { path: '', redirectTo: 'link1', pathMatch: 'full' },
+  /* 🔥 Wildcard route (404) */
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./components/coming-soon/coming-soon.component').then(
+        (c) => c.ComingSoonComponent
+      ),
+  },
 ];
