@@ -7,14 +7,59 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
+    hasBackdrop="true"
+    [disableClose]="false"
+    (backdropClick)="drawer.close()"
   >
     <!-- WRAPPER -->
     <div class="sidenav-wrapper">
       <!-- TOP -->
       <div class="sidenav-content">
-        <mat-toolbar class="sidenav-toolbar">Menu</mat-toolbar>
+        <mat-toolbar class="sidenav-toolbar">
+          <span class="toolbar-title">Angular Topics</span>
 
+          <!-- SPACER -->
+          <span class="spacer"></span>
+
+          <!-- CLOSE ICON -->
+          <button
+            mat-icon-button
+            aria-label="Close menu"
+            (click)="drawer.close()"
+          >
+            <mat-icon>close</mat-icon>
+          </button></mat-toolbar
+        >
+
+        <!-- 🔍 SEARCH -->
+        <div class="sidenav-search">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Search topics</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input
+              matInput
+              [(ngModel)]="searchTerm"
+              placeholder="Type to filter…"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- NAV LIST -->
         <mat-nav-list>
+          @for (topic of filteredTopics(); track topic.path) {
+          <a
+            mat-list-item
+            [routerLink]="topic.path"
+            routerLinkActive="active-link"
+            (click)="drawer.close()"
+          >
+            <mat-icon matListItemIcon>{{ topic.icon }}</mat-icon>
+            <span matListItemTitle>{{ topic.title }}</span>
+          </a>
+          }
+        </mat-nav-list>
+
+        <!-- <mat-nav-list>
           <a
             mat-list-item
             routerLink="/link1"
@@ -44,7 +89,7 @@
             <mat-icon matListItemIcon>miscellaneous_services</mat-icon>
             <span matListItemTitle>Services</span>
           </a>
-        </mat-nav-list>
+        </mat-nav-list> -->
       </div>
 
       <!-- BOTTOM (LOGOUT) -->

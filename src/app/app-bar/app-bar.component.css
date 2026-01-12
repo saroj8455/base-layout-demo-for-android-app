@@ -41,6 +41,23 @@
   z-index: 1;
 }
 
+.sidenav-search {
+  padding: 8px;
+  margin-top: 8px; /* ✅ THIS FIXES THE CROWDING */
+}
+
+.sidenav-search .mat-mdc-form-field {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.sidenav-toolbar button:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.sidenav-toolbar mat-icon {
+  color: #003087;
+}
+
 /* Active route style */
 .active-link {
   background-color: rgba(0, 48, 135, 0.08); /* PayPal-style blue tint */
@@ -76,6 +93,7 @@
 .sidenav-content {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Fixed bottom logout */
@@ -108,4 +126,23 @@
 }
 .primary-item {
   border-left: 3px solid #003087;
+}
+
+/* Default nav icons */
+mat-nav-list mat-icon {
+  color: #003087;
+
+  padding: 6px;
+  font-size: 20px;
+}
+
+/* Nav text */
+mat-nav-list span[matListItemTitle] {
+  color: #1f2937;
+}
+
+/* Active item */
+.active-link mat-icon {
+  color: #003087;
+  background: rgba(0, 48, 135, 0.16);
 }
