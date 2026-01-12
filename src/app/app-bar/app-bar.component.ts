@@ -34,7 +34,7 @@ import { MaterialModule } from '../config/material.module';
     MaterialModule,
   ],
 })
-export class AppBarComponent implements AfterViewInit {
+export class AppBarComponent {
   @ViewChild('drawer') drawer!: MatSidenav;
 
   private breakpointObserver = inject(BreakpointObserver);
@@ -76,16 +76,6 @@ export class AppBarComponent implements AfterViewInit {
   filteredTopics() {
     const term = this.searchTerm.toLowerCase();
     return this.topics.filter((t) => t.title.toLowerCase().includes(term));
-  }
-
-  ngAfterViewInit() {
-    this.isHandset$.subscribe((isMobile) => {
-      if (!isMobile) {
-        this.drawer.open(); // desktop
-      } else {
-        this.drawer.close(); // mobile
-      }
-    });
   }
 
   logout() {
