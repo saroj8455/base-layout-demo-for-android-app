@@ -1,0 +1,32 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Material owns full height */
+.app-container {
+  height: 100dvh;
+}
+
+/* App layout */
+.mobile-viewport {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* App bar fixed */
+app-app-bar {
+  flex-shrink: 0;
+}
+
+/* ONLY router content scrolls */
+.router-content {
+  flex: 1;
+  min-height: 0; /* 🔥 critical */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem;
+}

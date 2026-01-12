@@ -1,7 +1,31 @@
-<main class="mobile-viewport">
+<!-- <main class="mobile-viewport">
   <app-app-bar></app-app-bar>
 
   <section class="router-content">
     <router-outlet></router-outlet>
   </section>
-</main>
+</main> -->
+<mat-sidenav-container class="app-container">
+  <!-- SIDE NAV -->
+  <mat-sidenav
+    #drawer
+    class="layout-sidenav"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    (backdropClick)="drawer.close()"
+  >
+    <!-- sidenav content here -->
+  </mat-sidenav>
+
+  <!-- MAIN APP -->
+  <mat-sidenav-content>
+    <main class="mobile-viewport">
+      <!-- TOP BAR -->
+      <app-app-bar (menuClick)="drawer.toggle()"></app-app-bar>
+
+      <!-- 🔥 ONLY SCROLL AREA -->
+      <section class="router-content">
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

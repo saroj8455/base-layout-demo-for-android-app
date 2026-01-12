@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { MaterialModule } from '../../config/material.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}
